@@ -1,0 +1,51 @@
+{
+  "name": "@la-rebelion/mcp-tools",
+  "version": "0.1.0",
+  "description": "MCP Tools implementation for La Rebelion Labs facade pattern",
+  "type": "module",
+  "author": {
+    "name": "La Rebelion Labs",
+    "url": "https://rebelion.la"
+  },
+  "contributors": [
+    {
+      "name": "Adrian Escutia",
+      "url": "https://escutia.me/adrian"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/la-rebelion/mcp-tools"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "module": "src/index.ts",
+  "bin": {
+    "mcp-tools": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "start": "node --disable-warning=ExperimentalWarning build/index.js",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@la-rebelion/mcp-server": "../mcp-server/",
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.24.1",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.3",
+    "typescript": "^5.7.2"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
+  }
+}
